@@ -103,7 +103,6 @@ class _HomePageState extends State<HomePage> {
                       ? const Color.fromRGBO(216, 240, 253, 1)
                       : const Color.fromRGBO(245, 247, 249, 1),
                 );
-                ;
               },
             ),
           )
