@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> filters = const ['All', 'Addidas', 'Nike', 'Bata'];
+  final List<String> filters = const ['All', 'Addidas', 'Nike', 'Bata', 'Puma'];
   late String selectedFilter;
 
   @override
@@ -62,18 +62,27 @@ class _HomePageState extends State<HomePage> {
                 final filter = filters[index];
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Chip(
-                    label: Text(filter),
-                    backgroundColor: const Color.fromRGBO(245, 247, 249, 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedFilter = filter;
+                      });
+                    },
+                    child: Chip(
+                      label: Text(filter),
+                      backgroundColor: selectedFilter == filter
+                          ? Theme.of(context).colorScheme.primary
+                          : const Color.fromRGBO(245, 247, 249, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      side: const BorderSide(
+                        color: Color.fromRGBO(245, 247, 249, 1),
+                      ),
+                      labelStyle: const TextStyle(fontSize: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
                     ),
-                    side: const BorderSide(
-                      color: Color.fromRGBO(245, 247, 249, 1),
-                    ),
-                    labelStyle: const TextStyle(fontSize: 16),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 15),
                   ),
                 );
               },
