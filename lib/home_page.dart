@@ -33,17 +33,17 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Text(
                   'Shoes\nCollection',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               //dynamically sets the width of the textfield according to the available space
-              Expanded(
+              const Expanded(
                 child: TextField(
                   decoration: InputDecoration(
                       hintText: 'Search',
