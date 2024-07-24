@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app_flutter/cart_provider.dart';
 
 import 'package:shop_app_flutter/home_page.dart';
 
@@ -12,8 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (context) => 'Hello world!',
+    return ChangeNotifierProvider(
+      create: (context) => CartProvider(),
       child: MaterialApp(
         title: 'Shopping App',
         theme: ThemeData(
@@ -23,10 +24,11 @@ class MyApp extends StatelessWidget {
             primary: const Color.fromRGBO(254, 206, 1, 1),
           ),
           appBarTheme: const AppBarTheme(
-              titleTextStyle: TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-          )),
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
           inputDecorationTheme: const InputDecorationTheme(
             hintStyle: TextStyle(
               fontWeight: FontWeight.bold,
